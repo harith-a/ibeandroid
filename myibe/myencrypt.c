@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "format.h"
 #include "ibe_progs.h"
@@ -11,16 +12,18 @@ CONF_CTX *cnfctx;
 params_t params;
 
 
-int main(int argc, char const **argv)
+//int main(int argc, char const **argv)
+void myencrypt()
 {
     FILE *fpin, *fpou;
-    int result = 0;
+    //int result = 0;
     char defaultcnffile[] = "ibe.cnf";
-    char buff[1000];
+    //char buff[1000];
 
     char **idarray;
     int i;
     int count;
+    char *argv[2];
     argv[1] = "har";
     
     //printf("%d\n",argc);
@@ -59,12 +62,12 @@ int main(int argc, char const **argv)
 
     if ((fpin = fopen ("plain.txt", "r")) == NULL) {
         printf ("Error %d opening 'plain.txt'\n", errno);
-        return 1;
+    //    return 1;
     }
 	
     if ((fpou = fopen ("cipher.txt", "w")) == NULL) {
         printf ("Error %d opening 'cipher.txt'\n", errno);
-        return 1;
+     //   return 1;
     }
         
     dup2(fileno(fpou), fileno(stdout));
@@ -86,8 +89,14 @@ int main(int argc, char const **argv)
     IBE_clear();
     
 
-    return result;
+    //return result;
 }
 
+int main(int argc, char const *argv[])
+{
+    myencrypt();
+
+    return 0;
+}
 
 

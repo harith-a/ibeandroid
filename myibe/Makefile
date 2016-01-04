@@ -59,15 +59,15 @@ else
 #for Linux
 
 #gcc-3.0 seems faster
-CC=/home/hyxer/Downloads/android-ndk-r10e/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc-4.8
+#CC=/home/hyxer/Downloads/android-ndk-r10e/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc-4.8
 SSL_I=/usr/local/ssl/include
 SSL_L=/usr/local/ssl/lib
 GMP_I=/usr/include
 GMP_L=/usr/lib
 
-CFLAGS= -DNDEBUG -pipe -O3 -march=armv5 -Wall -I$(GMP_I) -I$(SSL_I) \
+CFLAGS= -DNDEBUG -pipe -O3 -march=native -Wall -I$(GMP_I) -I$(SSL_I) \
 -fomit-frame-pointer -ffast-math -funroll-loops
-BINARIES=myencrypt 
+BINARIES=myencrypt ibe
 TESTBINS=
 OSNAME=linux
 endif
